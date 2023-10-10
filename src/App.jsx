@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import MyButton from './components/MYButton'
+import MyProflie from './components/MyProflie'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,19 +22,24 @@ function App() {
     {title: 'Apple', id:3 },
   ];
 
-  function handleClick() {
+  function handleInCreaseClick() {
     setCount(count + 1)
+  }
+  function handleDeCreaseClick() {
+    setCount(count - 1)
   }
 
   return (
     <>
       
       <h1>Hello React js </h1>
+      <MyProflie data={user}/>
       <img src={user.imgPic} width="170" height="195" alt={user.firstName} />
       <p>My name is {user.firstName} {user.lastName}</p>
       <MyButton />
       <p>{count}</p>
-      <button onClick={handleClick}>Increase</button>
+      <button onClick={handleInCreaseClick}>Increase</button>
+      <button onClick={handleDeCreaseClick}>Decrease</button>
       {ifTrue ? "Yes, it's true" : "No, it's false"}
       <ul> 
         {product.map(item =>(
@@ -41,9 +47,11 @@ function App() {
         ))}
       </ul>
       
+      
 
     </>
   )
 }
 
 export default App
+
